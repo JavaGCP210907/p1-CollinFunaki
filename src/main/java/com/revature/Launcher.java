@@ -1,11 +1,12 @@
 package com.revature;
 
-import java.sql.Blob;
 import java.time.LocalDateTime;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import com.revature.controllers.LoginController;
+import com.revature.controllers.ReimbursementController;
 import com.revature.dao.ReimbursementDao;
 import com.revature.dao.UserDao;
 import com.revature.models.Reimbursement;
@@ -24,12 +25,15 @@ public class Launcher {
 		UserDao uDao = new UserDao();
 		ReimbursementDao rDao = new ReimbursementDao();
 		
-		try(Session ses = HibernateUtil.getSession()){
-			System.out.println("Hello you have a connection to your DB with Hibernate!");
-			HibernateUtil.closeSession();
-		} catch (HibernateException e) {
-			System.out.println("DB connection failed!!");
-		}
+		ReimbursementController rc = new ReimbursementController(); //to get access to the HTTP handlers in the controller layer
+		LoginController lc = new LoginController();
+		
+//		try(Session ses = HibernateUtil.getSession()){
+//			System.out.println("Hello you have a connection to your DB with Hibernate!");
+//			HibernateUtil.closeSession();
+//		} catch (HibernateException e) {
+//			System.out.println("DB connection failed!!");
+//		}
 		
 		//create data for the database
 		//create user role table/data/objects/data
@@ -69,9 +73,15 @@ public class Launcher {
 		app.post("/", ctx -> ctx.result("Hello Javalin! My Application recieved a POST request! how nice ;)"));
 		
 		
+		//GET all reimbursements
+		//GET reimbursements => return all reimbursements
+		app.get("/reimbursements", rc.getReimbursementsHandler);
+		
+		//imagine we have users
+		//send a POST request to validate user login credentials
+		app.post("/login", lc.loginHandler);
+		
 	}
-	
-	
 	
 
 }
