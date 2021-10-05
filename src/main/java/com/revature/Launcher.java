@@ -35,35 +35,58 @@ public class Launcher {
 //			System.out.println("DB connection failed!!");
 //		}
 		
-		//create data for the database
-		//create user role table/data/objects/data
+		//create data for the database ----------------------vvvvvv
 		
-		Role r1 = new Role("customer");
+		//create user role table/data/objects/data
+		Role employee = new Role("Employee");
+		Role fm = new Role("Finance Manager");
+
 		
 		//create statuses table/data/objects/data
-		Status s1 = new Status("complete");
+		Status pending = new Status("Pending");
+		Status denied = new Status("Denied");
+		Status approved = new Status("Approved");
 		
 		///create status types table/data/objects/data
-		Type t1 = new Type("1");
+		Type L = new Type("Lodging");
+		Type T = new Type("Travel");
+		Type F = new Type("Food");
+		Type O = new Type("Other");
 
 		//create a user table/data/objects/data
-		User u1 = new User("user1", "password", "John", "Doe", "jdoe@email.com", r1);
+		User e1 = new User("jdoe123", "password", "John", "Doe", "jdoe@email.com", employee);
+		User fm1 = new User("pres44", "password", "Obama", "???", "obama44@email.com", fm);
+		User e2 = new User("bc1", "password", "Robert", "Saget", "bsaget@email.com", employee);
+		User fm2 = new User("mrapple", "password", "Steven", "Jobs", "appleguy@email.com", fm);
+		
 		
 		//create a reimbursement table/data/objects/data
-		Reimbursement reimb1 = new Reimbursement(20, null, null, "did something", null,
-				u1, u1, s1, t1);
+		Reimbursement r1 = new Reimbursement(20, null, null, "did something", null,
+				e1, fm1, approved, L);
+		Reimbursement r2 = new Reimbursement(100, null, null, "got mcdonalds", null,
+				e2, fm1, pending, F);
+		Reimbursement r3 = new Reimbursement(200, null, null, "got a hotel", null,
+				e2, fm1, approved, T);
+		Reimbursement r4 = new Reimbursement(50, null, null, "got materials", null,
+				e1, fm2, denied, O);
 		
-		System.out.println(reimb1);
 		
 		//insert data into our database tables
-		rDao.insertReimbursement(reimb1);
+		rDao.insertReimbursement(r1);
+		rDao.insertReimbursement(r2);
+		rDao.insertReimbursement(r3);
+		rDao.insertReimbursement(r4);
 		
 		
 		///////////////////////////////////////
 		
 		//Set up connection to Postman server using Javalin
 		//.create() instantiates a Javalin object, and .start() starts the server (you can use any free port)
-		Javalin app = Javalin.create().start(3000);
+		Javalin app = Javalin.create(
+				config -> {
+					config.enableCorsForAllOrigins(); //allows the server 
+				}
+				).start(3000);
 		
 		//HTTP Handlers below...
 		

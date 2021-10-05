@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.revature.models.Reimbursement;
@@ -17,6 +19,19 @@ public class ReimbursementDao implements ReimbursementDaoInterface{
 		
 		HibernateUtil.closeSession();
 		
+	}
+
+	public List<Reimbursement> getAllReimbursements() {
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//Using HQL! Hibernate Query Language. It references Java Classes not DB entities
+		List<Reimbursement> rList = ses.createQuery("FROM Reimbursement").list();
+		
+		
+		HibernateUtil.closeSession();
+		
+		return rList;
 	}
 
 

@@ -16,8 +16,7 @@ public class ReimbursementService {
 	//this method will get called by the controller layer
 	public List<Reimbursement> getAllReimbursements(){
 	
-		return null;
-//		return rDao.getAllReimbursements();
+		return rDao.getAllReimbursements();
 		
 	}
 	
