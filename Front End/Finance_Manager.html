@@ -5,33 +5,40 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="ERS.css">
     </head>
     <body>
 
+        <br>
+        <button id="displayAll">See all reimbursements</button>
+        <br><br><br>
         <!-- I want a table that will display all my reimbursements information when it comes back from the server -->
-        <div id="table-row" class="row">
+        <div>
             <!-- Then we need rows inside the container to organzie the data -->
-            <table id="avengersTable" class="table table-hover table-bordered table-dark">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th></th>
-                        <th></th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="reimbursementBody">
-                    <!-- fill in with reimbursement table -->
+           <table id="reimbTable" class="table table-hover table-bordered table-dark">
+               <thead>
+                   <tr>
+                       <th>ID</th>
+                       <th>Amount</th>
+                       <th>Submitted</th>
+                       <th>Resolved</th>
+                       <th>Description</th>
+                       <th>Receipt</th>
+                       <th>Author</th>
+                       <th>Resolver</th>
+                       <th>Status</th>
+                       <th>Type</th>
+                   </tr>
+               </thead>
+               <tbody id="reimbBody">
+                   <!-- We'll leave this blank: it will be filled by our javascript when JS data come in -->
+   
+               </tbody>
+           </table>
+           </div>
 
-                </tbody>
 
-            </table>
-        </div>
-
-
-        
+     <script src=fm.js></script>
     </body>
     </html>
