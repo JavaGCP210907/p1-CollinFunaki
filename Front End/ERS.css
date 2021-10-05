@@ -1,8 +1,10 @@
 /* CSS styling */
-
+#home{
+    text-align: center;
+}
 #login{
     text-align: center;
 }
-#loginButton{
+button{
     background-color: #F26926;
 }
