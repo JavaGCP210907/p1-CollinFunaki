@@ -72,6 +72,10 @@ public class ReimbursementController {
 			
 			Gson gson = new Gson();
 			
+//			Reimbursement tempR = new Reimbursement();
+//			int id = tempR.getId();
+//			log.info(id);
+			
 			Reimbursement r = gson.fromJson(body, Reimbursement.class); //turn that JSON String into a reimbursement object
 			
 			//set reimbursement id to one higher?

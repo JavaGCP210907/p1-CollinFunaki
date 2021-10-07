@@ -59,7 +59,7 @@ public class Launcher {
 
 		//create a user table/data/objects/data
 		User e1 = new User("employee", "password", "John", "Doe", "jdoe@email.com", employee);
-		User fm1 = new User("pres44", "password", "Obama", "???", "obama44@email.com", fm);
+		User fm1 = new User("manager", "password", "Obama", "???", "obama44@email.com", fm);
 		User e2 = new User("jdoe123", "password", "John", "Doe", "jdoe@email.com", employee);
 		User fm2 = new User("pres44", "password", "Obama", "???", "obama44@email.com", fm);
 		User e3 = new User("bc1", "password", "Robert", "Saget", "bsaget@email.com", employee);

@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import com.revature.dao.UserDao;
+
 public class ManagerLoginService {
 
 	//hardcoding username/password --I dont want to create a whole users table/DAO
@@ -10,13 +12,27 @@ public class ManagerLoginService {
 	public boolean login(String username, String password) {
 		
 		//if login is correct, change this so it isnt hardcoded
-		if(username.equals("manager") && password.equals("password")) {
+//		if(username.equals("manager") && password.equals("password")) {
+//			
+//			return true;
+//			
+//		}
+//		
+//		return false;
+		
+		UserDao uDao = new UserDao();
+		
+		//not hardcoded
+		if(uDao.verifyManagerLogin(username, password)) {
 			
 			return true;
 			
-		}
+		} 
+		
 		
 		return false;
+		
+		
 	}
 	
 	

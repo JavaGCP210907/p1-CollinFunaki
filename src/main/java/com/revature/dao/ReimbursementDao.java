@@ -29,6 +29,7 @@ public class ReimbursementDao implements ReimbursementDaoInterface{
 		
 		HibernateUtil.closeSession();
 		
+		log.info(r);
 	}
 
 	public List<Reimbursement> getAllReimbursements() {
