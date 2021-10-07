@@ -95,7 +95,7 @@ async function filter(){
     for (let reimb of data){
 
         let selectedStatus = document.getElementById("filter").value
-        if(reimb.status == selectedStatus){
+        if(reimb.status.status == selectedStatus){
 
             let row = document.createElement("tr") //create a table row
 

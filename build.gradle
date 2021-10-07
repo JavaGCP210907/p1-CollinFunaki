@@ -29,10 +29,10 @@ dependencies {
     implementation 'com.google.guava:guava:28.2-jre'
 
     // JUnit dependency for testing not done in this demo --see HelloGradle (first one)
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     
-     //Javalin dependency so we can expose REST endpoints and send responses to the front end
+    //Javalin dependency so we can expose REST endpoints and send responses to the front end
     compile group: 'io.javalin', name: 'javalin', version: '3.13.3'
     compile "org.slf4j:slf4j-simple:1.7.30" //we need to add this according to the console
     

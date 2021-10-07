@@ -11,15 +11,6 @@ public class ManagerLoginService {
 	
 	public boolean login(String username, String password) {
 		
-		//if login is correct, change this so it isnt hardcoded
-//		if(username.equals("manager") && password.equals("password")) {
-//			
-//			return true;
-//			
-//		}
-//		
-//		return false;
-		
 		UserDao uDao = new UserDao();
 		
 		//not hardcoded

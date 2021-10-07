@@ -1,12 +1,7 @@
 package com.revature.service;
 
-import java.util.List;
-
-import org.hibernate.Session;
-
 import com.revature.dao.UserDao;
-import com.revature.models.Reimbursement;
-import com.revature.utils.HibernateUtil;
+
 
 public class EmployeeLoginService {
 	
@@ -17,32 +12,15 @@ public class EmployeeLoginService {
 	
 	public boolean login(String username, String password) {
 		
-		//if login is correct, change this so it isnt hardcoded
-//		if(username.equals("employee") && password.equals("password")) {
-//			
-//			return true;
-//			
-//		} 
-//		
-//		
-//		return false;
-		
-		
-//		Session ses = HibernateUtil.getSession();
-//		
-//		HibernateUtil.closeSession();
 		UserDao uDao = new UserDao();
 		
-		
-		//not hardcoded version
+		//if the login info matches an employee in the database
 		if(uDao.verifyEmployeeLogin(username, password)) {
 			return true;
 			
 		} 
 		
-		
 		return false;
-		
 		
 	}
 

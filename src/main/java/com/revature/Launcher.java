@@ -1,6 +1,5 @@
 package com.revature;
 
-//import java.time.LocalDateTime;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -38,6 +37,7 @@ public class Launcher {
 //		} catch (HibernateException e) {
 //			System.out.println("DB connection failed!!");
 //		}
+		
 		
 		//create data for the database ----------------------vvvvvv
 		
@@ -95,18 +95,12 @@ public class Launcher {
 				}
 				).start(3000);
 		
-		//HTTP Handlers below...
 		
-		//any GET requests to this default endpoint (/) will return this text
-//		app.get("/", ctx -> ctx.result("Hello Javalin! My Application recieved a GET request! how cool ;)"));
-//		//any POST requests sent to this default endpoint (/) will return this text
-//		app.post("/", ctx -> ctx.result("Hello Javalin! My Application recieved a POST request! how nice ;)"));
-//		
+		//HTTP Handlers below...
 		
 		//Employee actions
 		//send a POST request to validate employee login credentials
 		app.post("/elogin", elc.eloginHandler);
-		
 		//add (POST) a new reimbursement request
 		app.post("/newReimb", rc.addRequest);
 		
