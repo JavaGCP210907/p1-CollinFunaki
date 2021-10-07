@@ -1,7 +1,7 @@
 package com.revature.models;
 
-import java.sql.Blob;
-import java.time.LocalDateTime;
+//import java.sql.String;
+//import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,16 +29,16 @@ public class Reimbursement {
 	private int amount;
 	
 	@Column(name = "reimb_submitted")
-	private LocalDateTime submitted;
+	private String submitted;
 	
 	@Column(name = "reimb_resolved")
-	private LocalDateTime resolved;
+	private String resolved;
 	
 	@Column(name = "reimb_description")
 	private String description;
 	
 	@Column(name = "reimb_receipt")
-	private Blob receipt;
+	private String receipt;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="reimb_author_id", referencedColumnName="users_id")
@@ -65,8 +65,8 @@ public class Reimbursement {
 	}
 
 
-	public Reimbursement(int id, int amount, LocalDateTime submitted, LocalDateTime resolved, String description,
-			Blob receipt, User author, User resolver, Status status, Type type) {
+	public Reimbursement(int id, int amount, String submitted, String resolved, String description,
+			String receipt, User author, User resolver, Status status, Type type) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -81,7 +81,7 @@ public class Reimbursement {
 	}
 
 
-	public Reimbursement(int amount, LocalDateTime submitted, LocalDateTime resolved, String description, Blob receipt,
+	public Reimbursement(int amount, String submitted, String resolved, String description, String receipt,
 			User author, User resolver, Status status, Type type) {
 		super();
 		this.amount = amount;
@@ -199,22 +199,22 @@ public class Reimbursement {
 	}
 
 
-	public LocalDateTime getSubmitted() {
+	public String getSubmitted() {
 		return submitted;
 	}
 
 
-	public void setSubmitted(LocalDateTime submitted) {
+	public void setSubmitted(String submitted) {
 		this.submitted = submitted;
 	}
 
 
-	public LocalDateTime getResolved() {
+	public String getResolved() {
 		return resolved;
 	}
 
 
-	public void setResolved(LocalDateTime resolved) {
+	public void setResolved(String resolved) {
 		this.resolved = resolved;
 	}
 
@@ -229,12 +229,12 @@ public class Reimbursement {
 	}
 
 
-	public Blob getReceipt() {
+	public String getReceipt() {
 		return receipt;
 	}
 
 
-	public void setReceipt(Blob receipt) {
+	public void setReceipt(String receipt) {
 		this.receipt = receipt;
 	}
 

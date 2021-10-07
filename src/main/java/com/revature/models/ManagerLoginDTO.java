@@ -5,7 +5,7 @@ package com.revature.models;
 //this then gets sent to the controller to get turned into a Java object
 //The username and password will be put into the DTO as fields, which will then get checked/validated by the service layer
 //You NEVER store a DTO in the database. It's purely for Data Transfer... hence Data Transfer Object
-public class LoginDTO {
+public class ManagerLoginDTO {
 
 	//our LoginDTO models only the username/password of our users
 	private String username;
@@ -14,12 +14,12 @@ public class LoginDTO {
 	
 	//then I just want two constructors so we can instantiate this class when needed
 	
-	public LoginDTO() {
+	public ManagerLoginDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public LoginDTO(String username, String password) {
+	public ManagerLoginDTO(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;

@@ -11,8 +11,18 @@
     <body>
 
         <br>
+        <div>
         <button id="displayAll">See all reimbursements</button>
-        <br><br><br>
+        <button id="updateStatus">Update a Reimbursement Status</button>
+        <label for="filter">Filter by status</label>
+            <select name="filter" id="filter">
+                <option value="Pending">Pending</option>
+                <option value="Denied">Denied</option>
+                <option value="Approved">Approved</option>
+            </select>
+        </div>
+
+        <br><br>
         <!-- I want a table that will display all my reimbursements information when it comes back from the server -->
         <div>
             <!-- Then we need rows inside the container to organzie the data -->
@@ -37,6 +47,10 @@
                </tbody>
            </table>
            </div>
+
+           <div id=submitUpdateDiv>
+            <!-- empty div for the submit button when user clicks submit change -->
+            </div>
 
 
      <script src=Manager.js></script>

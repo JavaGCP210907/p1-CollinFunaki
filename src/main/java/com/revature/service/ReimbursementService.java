@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.revature.dao.ReimbursementDao;
 import com.revature.models.Reimbursement;
+import com.revature.models.Status;
+import com.revature.models.StatusUpdate;
 
 //the service layer sits between the controllers and the daos
 public class ReimbursementService {
@@ -19,6 +21,23 @@ public class ReimbursementService {
 		return rDao.getAllReimbursements();
 		
 	}
+
+
+	//call the insertReimbursement method from the reimbursement dao to actually make the insert
+	public void insertReimbursement(Reimbursement r) {
+		
+		rDao.insertReimbursement(r);
+		
+	}
+
+
+	public void updateReimbursement(StatusUpdate su) {
+		
+		rDao.updateStatus(su);
+		
+	}
+
+
 	
 	
 	//all were doing is calling the dao method in order to get a List of all the avnegers to send to the controller

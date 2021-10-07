@@ -13,7 +13,7 @@ public class Status {
 	
 	//Create fields/variables
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "reimb_status_id")
 	private int id;
 	

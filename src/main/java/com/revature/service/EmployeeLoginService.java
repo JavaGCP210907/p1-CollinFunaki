@@ -1,7 +1,7 @@
 package com.revature.service;
 
-public class ManagerLoginService {
-
+public class EmployeeLoginService {
+	
 	//hardcoding username/password --I dont want to create a whole users table/DAO
 	
 	//typically youll want to validate user/pass aginst some user/pass in your database
@@ -10,7 +10,7 @@ public class ManagerLoginService {
 	public boolean login(String username, String password) {
 		
 		//if login is correct, change this so it isnt hardcoded
-		if(username.equals("manager") && password.equals("password")) {
+		if(username.equals("employee") && password.equals("password")) {
 			
 			return true;
 			
@@ -18,6 +18,5 @@ public class ManagerLoginService {
 		
 		return false;
 	}
-	
-	
+
 }

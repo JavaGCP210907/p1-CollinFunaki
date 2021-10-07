@@ -1,23 +1,23 @@
 package com.revature.controllers;
 
 import com.google.gson.Gson;
-import com.revature.models.ManagerLoginDTO;
-import com.revature.service.ManagerLoginService;
+import com.revature.models.EmployeeLoginDTO;
+import com.revature.service.EmployeeLoginService;
 import com.revature.utils.JwtUtil;
 
 import io.javalin.http.Handler;
 
-public class ManagerLoginController {
-	
-	ManagerLoginService ls = new ManagerLoginService();
+public class EmployeeLoginController {
 
-	public Handler mloginHandler = (ctx) -> {
+	EmployeeLoginService ls = new EmployeeLoginService();
+
+	public Handler eloginHandler = (ctx) -> {
 		
 		String body = ctx.body(); //turn the body (data) of the POST request into a Java String
 		
 		Gson gson = new Gson();
 		
-		ManagerLoginDTO LDTO = gson.fromJson(body, ManagerLoginDTO.class); //turn that JSON String into a LoginDTO object
+		EmployeeLoginDTO LDTO = gson.fromJson(body, EmployeeLoginDTO.class); //turn that JSON String into a LoginDTO object
 		
 		//control flow to determine what happens in the event of a successful/unsuccessful login
 		
@@ -34,6 +34,7 @@ public class ManagerLoginController {
 			//successful status code 
 			ctx.status(200);
 			
+			
 			ctx.result("Login Success! JWT is: " + jwt);
 			
 		} else { //if login fails...
@@ -46,5 +47,5 @@ public class ManagerLoginController {
 		
 	};
 	
-	
+
 }

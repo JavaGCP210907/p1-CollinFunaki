@@ -1,11 +1,12 @@
 package com.revature;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import com.revature.controllers.LoginController;
+import com.revature.controllers.EmployeeLoginController;
+import com.revature.controllers.ManagerLoginController;
 import com.revature.controllers.ReimbursementController;
 import com.revature.dao.ReimbursementDao;
 import com.revature.dao.UserDao;
@@ -26,7 +27,10 @@ public class Launcher {
 		ReimbursementDao rDao = new ReimbursementDao();
 		
 		ReimbursementController rc = new ReimbursementController(); //to get access to the HTTP handlers in the controller layer
-		LoginController lc = new LoginController();
+		
+		ManagerLoginController mlc = new ManagerLoginController();
+		EmployeeLoginController elc = new EmployeeLoginController();
+		
 		
 //		try(Session ses = HibernateUtil.getSession()){
 //			System.out.println("Hello you have a connection to your DB with Hibernate!");
@@ -43,9 +47,9 @@ public class Launcher {
 
 		
 		//create statuses table/data/objects/data
-		Status pending = new Status("Pending");
-		Status denied = new Status("Denied");
-		Status approved = new Status("Approved");
+		Status pending = new Status(1, "Pending");
+		Status denied = new Status(2, "Denied");
+		Status approved = new Status(3, "Approved");
 		
 		///create status types table/data/objects/data
 		Type L = new Type("Lodging");
@@ -54,21 +58,24 @@ public class Launcher {
 		Type O = new Type("Other");
 
 		//create a user table/data/objects/data
-		User e1 = new User("jdoe123", "password", "John", "Doe", "jdoe@email.com", employee);
+		User e1 = new User("employee", "password", "John", "Doe", "jdoe@email.com", employee);
 		User fm1 = new User("pres44", "password", "Obama", "???", "obama44@email.com", fm);
-		User e2 = new User("bc1", "password", "Robert", "Saget", "bsaget@email.com", employee);
-		User fm2 = new User("mrapple", "password", "Steven", "Jobs", "appleguy@email.com", fm);
+		User e2 = new User("jdoe123", "password", "John", "Doe", "jdoe@email.com", employee);
+		User fm2 = new User("pres44", "password", "Obama", "???", "obama44@email.com", fm);
+		User e3 = new User("bc1", "password", "Robert", "Saget", "bsaget@email.com", employee);
+		User fm3 = new User("mrapple", "password", "Steven", "Jobs", "appleguy@email.com", fm);
 		
 		
 		//create a reimbursement table/data/objects/data
+		//Reimbursemnt(amount, date submitted, date resolves, description, recipt pic, author, resolver, status, type)
 		Reimbursement r1 = new Reimbursement(20, null, null, "did something", null,
 				e1, fm1, approved, L);
 		Reimbursement r2 = new Reimbursement(100, null, null, "got mcdonalds", null,
 				e2, fm1, pending, F);
 		Reimbursement r3 = new Reimbursement(200, null, null, "got a hotel", null,
-				e2, fm1, approved, T);
+				e2, fm2, approved, T);
 		Reimbursement r4 = new Reimbursement(50, null, null, "got materials", null,
-				e1, fm2, denied, O);
+				e3, fm3, denied, O);
 		
 		
 		//insert data into our database tables
@@ -91,18 +98,29 @@ public class Launcher {
 		//HTTP Handlers below...
 		
 		//any GET requests to this default endpoint (/) will return this text
-		app.get("/", ctx -> ctx.result("Hello Javalin! My Application recieved a GET request! how cool ;)"));
-		//any POST requests sent to this default endpoint (/) will return this text
-		app.post("/", ctx -> ctx.result("Hello Javalin! My Application recieved a POST request! how nice ;)"));
+//		app.get("/", ctx -> ctx.result("Hello Javalin! My Application recieved a GET request! how cool ;)"));
+//		//any POST requests sent to this default endpoint (/) will return this text
+//		app.post("/", ctx -> ctx.result("Hello Javalin! My Application recieved a POST request! how nice ;)"));
+//		
+		
+		//Employee actions
+		//send a POST request to validate employee login credentials
+		app.post("/elogin", elc.eloginHandler);
+		
+		//add (POST) a new reimbursement request
+		app.post("/newReimb", rc.addRequest);
 		
 		
-		//GET all reimbursements
-		//GET reimbursements => return all reimbursements
+		//-----------------------------------
+		
+		
+		//Manager actions 
+		//send a POST request to validate manager login credentials
+		app.post("/mlogin", mlc.mloginHandler);
+		//GET all reimbursements => return all reimbursements
 		app.get("/reimbursements", rc.getReimbursementsHandler);
-		
-		//imagine we have users
-		//send a POST request to validate user login credentials
-		app.post("/login", lc.loginHandler);
+		//update (PATCH) the status of a reimbursment
+		app.patch("/reimbursements", rc.updateStatus);
 		
 	}
 	

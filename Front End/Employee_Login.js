@@ -39,6 +39,9 @@ async function loginFunc(){
 
     console.log(response.status); //useful for debug 
 
+    //store username of employee in session storage
+    sessionStorage.setItem("username", user.username);
+
     //control flow based onsuccess or failed login
     if(response.status===200 ){
         //wipe out login row and welcome user

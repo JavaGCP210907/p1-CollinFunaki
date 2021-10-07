@@ -5,12 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee ERS Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="ERS.css">
 </head>
 <body>
     <div>
         <button id="view">View past tickets</button>
         <button id="add">Add a new reimbursement request</button>
-    </div>
+    </div><br>
 
+    <div>
+        <!-- Then we need rows inside the container to organzie the data -->
+       <table id="employeeReimbTable" class="table table-hover table-bordered table-dark">
+           <thead>
+               <tr>
+                   <th>ID</th>
+                   <th>Amount</th>
+                   <th>Date Submitted</th>
+                   <th>Date Resolved</th>
+                   <th>Description</th>
+                   <th>Receipt</th>
+                   <th>Author ID</th>
+                   <th>Resolver ID</th>
+                   <th>Status</th>
+                   <th>Type</th>
+               </tr>
+           </thead>
+           <tbody id="employeeReimbBody">
+               <!-- We'll leave this blank: it will be filled by our javascript when JS data come in -->
+           </tbody>
+       </table>
+       </div>
+
+       <div id=submitNew>
+           <!-- empty div for the submit button when user click add a new reimbursement -->
+       </div>
+
+    <script src=Employee.js></script>
 </body>
 </html>
