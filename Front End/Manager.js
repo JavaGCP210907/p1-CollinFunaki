@@ -201,7 +201,7 @@ async function updateStatus(){
 
     var input = window. prompt("Enter your id of the reimburement you would like to update: ");
     document.createElement("input")
-    
+
 
     let response = await fetch(url + "reimbursements", {credentials: "include"}); 
 
@@ -273,7 +273,7 @@ async function updateStatus(){
             let submitUpdate = document.createElement("button")
             document.getElementById("submitUpdateDiv").appendChild(submitUpdate)
             submitUpdate.setAttribute("id", "submitUpdate")
-            submitUpdate.setAttribute("class", "btn btn-light")
+            submitUpdate.setAttribute("class", "btn btn-dark")
             submitUpdate.innerHTML="Sumbit update"
 
             //When the button is clicked, add the new reimbursemnt request to the database

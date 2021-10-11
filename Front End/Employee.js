@@ -186,7 +186,7 @@ async function addNew(){
     let submitNew = document.createElement("button")
     document.getElementById("submitNew").appendChild(submitNew)
     submitNew.innerHTML="Add request"
-    submitNew.setAttribute("class", "btn btn-light")
+    submitNew.setAttribute("class", "btn btn-dark")
     //When the button is clicked, add the new reimbursemnt request to the database
     document.getElementById("submitNew").addEventListener("click", submit);
 
