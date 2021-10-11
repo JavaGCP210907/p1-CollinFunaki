@@ -47,6 +47,12 @@ async function loginFunc(){
         //wipe out login row and welcome user
         window.location.href = "Employee.html"
     } else{
-        document.getElementById("login").innerText="Login failed... try again!"
+        login.innerHTML="<br><br><h4>Login failed... try again!</h4>"
+        //create link to go back to login page
+        let goBack = document.createElement("a")
+        document.getElementById("login").appendChild(goBack)
+        goBack.setAttribute("id", "goBack")
+        goBack.setAttribute("href", "Employee_Login.html")
+        goBack.innerHTML="Go Back"
     }
 }

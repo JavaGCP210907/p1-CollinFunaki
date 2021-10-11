@@ -9,27 +9,18 @@
     <link rel="stylesheet" href="ERS.css">
 </head>
 <body>
-    <div>
-        <button id="view">View past tickets</button>
-        <button id="add">Add a new reimbursement request</button>
+    <a href="Home.html">Home</a>
+    <br>
+    <div class="centerDiv"><br><br>
+        <button id="view" class="btn btn-light">View past tickets</button>
+        <button id="add" class="btn btn-light">Add a new request</button>
     </div><br>
 
-    <div>
+    <div class="tableDiv"> 
         <!-- Then we need rows inside the container to organzie the data -->
-       <table id="employeeReimbTable" class="table table-hover table-bordered table-dark">
-           <thead>
-               <tr>
-                   <th>ID</th>
-                   <th>Amount</th>
-                   <th>Date Submitted</th>
-                   <th>Date Resolved</th>
-                   <th>Description</th>
-                   <th>Receipt</th>
-                   <th>Author ID</th>
-                   <th>Resolver ID</th>
-                   <th>Status</th>
-                   <th>Type</th>
-               </tr>
+       <table id="employeeReimbTable" class="table table-hover table-bordered table-sm">
+           <thead id="thead">
+               <!-- Heading will be added when a button is clicked -->
            </thead>
            <tbody id="employeeReimbBody">
                <!-- We'll leave this blank: it will be filled by our javascript when JS data come in -->
@@ -37,7 +28,7 @@
        </table>
        </div>
 
-       <div id=submitNew>
+       <div id="submitNew" align="center">
            <!-- empty div for the submit button when user click add a new reimbursement -->
        </div>
 

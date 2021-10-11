@@ -21,6 +21,10 @@ repositories {
     jcenter()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
@@ -29,7 +33,7 @@ dependencies {
     implementation 'com.google.guava:guava:28.2-jre'
 
     // JUnit dependency for testing not done in this demo --see HelloGradle (first one)
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.1'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     
     //Javalin dependency so we can expose REST endpoints and send responses to the front end

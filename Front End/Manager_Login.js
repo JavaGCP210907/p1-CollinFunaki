@@ -46,6 +46,13 @@ async function loginFunc(){
         window.location.href = "Manager.html"
 
     } else{
-        document.getElementById("login").innerText="Login failed... try again!"
+        document.getElementById("login").innerHTML="<br><br><h4>Login failed... try again!</h4>"
+        //create link to go back to login page
+        let goBack = document.createElement("a")
+        document.getElementById("login").appendChild(goBack)
+        goBack.setAttribute("text", "<- Go Back")
+        goBack.setAttribute("id", "goBack")
+        goBack.setAttribute("href", "Manager_Login.html")
+        goBack.innerHTML="Go Back"
     }
 }

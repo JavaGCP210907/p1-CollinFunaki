@@ -2,10 +2,59 @@
 #home{
     text-align: center;
 }
+.header{
+    text-align: center;
+    font-family: arial;
+}
 #login{
     text-align: center;
 }
-button{
+.input{
+    border-radius: 5px;
+}
+.btn{
     background-color: #F26926;
+    color: black;
+    font-family: arial;
+    border-radius: 5px;
+    margin: 10px;
+}
+#submitUpdateDiv{
+    right: 0px;
+}
+body{
+    background-color: gainsboro;
+}
+.centerDiv{
+    text-align: center;
+    top: 50%;
+	text-align:center;
+    width: 35%;
+	right:0;left:0;
+    margin:auto;
+    height:110px;
+}
+.tableDiv{
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
+
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+.login-reg-panel{
+    position: relative;
+    top: 50%;
+	text-align:center;
+    width: 25%;
+	right:0;left:0;
+    margin:auto;
+    height:300px;
+    background-color: #F26926;
+    border-radius: 5px;
+    opacity: 80%;
+    box-shadow: 10px 5px 5px gray;
+    font-family: arial;
+    color: black;
+}
+
+/* #F26926 */

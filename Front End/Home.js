@@ -12,3 +12,4 @@ function employeeLogin(){
 function managerLogin(){
     window.location.href = "Manager_Login.html"
 }
+

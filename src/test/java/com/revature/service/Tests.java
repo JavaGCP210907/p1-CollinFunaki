@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
-public class TestServices {
+public class Tests {
 	
 	public static EmployeeLoginService els; 
 	public static ManagerLoginService mls; 
@@ -57,8 +57,6 @@ public class TestServices {
 		System.out.println();
 		assertFalse(els.login("manager", "password"));
 	}
-	
-	@Test
 	
 	
 	

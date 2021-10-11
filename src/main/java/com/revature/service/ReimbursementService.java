@@ -7,10 +7,10 @@ import com.revature.models.Reimbursement;
 import com.revature.models.Status;
 import com.revature.models.StatusUpdate;
 
-//the service layer sits between the controllers and the daos
+//service layer sits between the controllers and the daos
 public class ReimbursementService {
 	
-	//instantiate an AvengersDao to use its methods
+	//instantiate an ReimbursementDao to use its methods
 	ReimbursementDao rDao = new ReimbursementDao();
 	
 	
@@ -30,7 +30,7 @@ public class ReimbursementService {
 		
 	}
 
-
+	//call the updateReimbursement method from the reimbursement dao to actually make the update
 	public void updateReimbursement(StatusUpdate su) {
 		
 		rDao.updateStatus(su);

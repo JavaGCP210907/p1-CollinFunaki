@@ -25,6 +25,20 @@ async function getReimbs() { //async returns a promise (which fetch returns)
     //clear whats in the table
     document.getElementById("reimbBody").innerHTML="";
 
+    // create heading
+    document.getElementById("thead").innerHTML="<tr>"+
+                                                "<th>ID</th>"+
+                                                "<th>Amount</th>"+
+                                                "<th>Date Submitted</th>"+
+                                                "<th>Date Resolved</th>"+
+                                                "<th>Description</th>"+
+                                                "<th>Receipt</th>"+
+                                                "<th>Author ID</th>"+
+                                                "<th>Resolver ID</th>"+
+                                                "<th>Status</th>"+
+                                                "<th>Type</th>"+
+                                                "</tr>"
+
     //for every reimbursement object we get back, put it in the table
     for (let reimb of data){
 
@@ -84,6 +98,21 @@ async function getReimbs() { //async returns a promise (which fetch returns)
 async function filter(){
 
     document.getElementById("reimbBody").innerHTML="";
+
+    // create heading
+    document.getElementById("thead").innerHTML="<tr>"+
+                                                "<th>ID</th>"+
+                                                "<th>Amount</th>"+
+                                                "<th>Date Submitted</th>"+
+                                                "<th>Date Resolved</th>"+
+                                                "<th>Description</th>"+
+                                                "<th>Receipt</th>"+
+                                                "<th>Author ID</th>"+
+                                                "<th>Resolver ID</th>"+
+                                                "<th>Status</th>"+
+                                                "<th>Type</th>"+
+                                                "</tr>"
+
 
     let response = await fetch(url + "reimbursements", {credentials: "include"}); 
 
@@ -156,7 +185,23 @@ async function updateStatus(){
     //clear button div
     document.getElementById("submitUpdateDiv").innerHTML="";
 
+    // create heading
+    document.getElementById("thead").innerHTML="<tr>"+
+                                                "<th>ID</th>"+
+                                                "<th>Amount</th>"+
+                                                "<th>Date Submitted</th>"+
+                                                "<th>Date Resolved</th>"+
+                                                "<th>Description</th>"+
+                                                "<th>Receipt</th>"+
+                                                "<th>Author ID</th>"+
+                                                "<th>Resolver ID</th>"+
+                                                "<th>Status</th>"+
+                                                "<th>Type</th>"+
+                                                "</tr>"
+
     var input = window. prompt("Enter your id of the reimburement you would like to update: ");
+    document.createElement("input")
+    
 
     let response = await fetch(url + "reimbursements", {credentials: "include"}); 
 
@@ -228,14 +273,15 @@ async function updateStatus(){
             let submitUpdate = document.createElement("button")
             document.getElementById("submitUpdateDiv").appendChild(submitUpdate)
             submitUpdate.setAttribute("id", "submitUpdate")
-            submitUpdate.innerHTML="Sumbit status update"
+            submitUpdate.setAttribute("class", "btn btn-light")
+            submitUpdate.innerHTML="Sumbit update"
 
             //When the button is clicked, add the new reimbursemnt request to the database
             document.getElementById("submitUpdate").addEventListener("click", submit);
         
             //function to actually submit the changes and edit the reimbursement status in the database
             async function submit(){
-        
+
                 //gather user input from status dropdown
                 let status = document.getElementById("statusDropdown").value;
                 let reimbId = reimb.id;
@@ -264,6 +310,8 @@ async function updateStatus(){
                 alert("Status updated!");
                 //clear body of the table
                 document.getElementById("reimbBody").innerHTML="";
+                //clear head of the table
+                document.getElementById("thead").innerHTML="";
                 //clear button div
                 document.getElementById("submitUpdateDiv").innerHTML="";
                 } else {

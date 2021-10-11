@@ -9,37 +9,25 @@
         <link rel="stylesheet" href="ERS.css">
     </head>
     <body>
-
+        <a href="Home.html">Home</a>
         <br>
-        <div>
-        <button id="displayAll">See all reimbursements</button>
-        <button id="updateStatus">Update a Reimbursement Status</button>
+        <div class="centerDiv">
+        <button id="displayAll" class="btn btn-light">See all reimbursements</button>
+        <button id="updateStatus" class="btn btn-light">Update a Status</button>
         <label for="filter">Filter by status</label>
             <select name="filter" id="filter">
-                <option value="Pending">Pending</option>
-                <option value="Denied">Denied</option>
-                <option value="Approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="denied">Denied</option>
+                <option value="approved">Approved</option>
             </select>
         </div>
 
-        <br><br>
         <!-- I want a table that will display all my reimbursements information when it comes back from the server -->
-        <div>
+        <div class="tableDiv">
             <!-- Then we need rows inside the container to organzie the data -->
-           <table id="reimbTable" class="table table-hover table-bordered table-dark">
-               <thead>
-                   <tr>
-                       <th>ID</th>
-                       <th>Amount</th>
-                       <th>Submitted</th>
-                       <th>Resolved</th>
-                       <th>Description</th>
-                       <th>Receipt</th>
-                       <th>Author</th>
-                       <th>Resolver</th>
-                       <th>Status</th>
-                       <th>Type</th>
-                   </tr>
+           <table id="reimbTable" class="table table-hover table-bordered table-sm">
+               <thead id="thead">
+                   <!-- Heading will be added when a button is clicked -->
                </thead>
                <tbody id="reimbBody">
                    <!-- We'll leave this blank: it will be filled by our javascript when JS data come in -->
@@ -48,7 +36,7 @@
            </table>
            </div>
 
-           <div id=submitUpdateDiv>
+           <div id="submitUpdateDiv" align="center">
             <!-- empty div for the submit button when user clicks submit change -->
             </div>
 

@@ -1,5 +1,8 @@
 package com.revature.dao;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -24,6 +27,10 @@ public class ReimbursementDao implements ReimbursementDaoInterface{
 
 		//open a Session object to establish a DB connection
 		Session ses = HibernateUtil.getSession(); //similar to opening a connection with JDBC
+		
+		r.setSubmitted(LocalDate.now().toString());
+		
+		log.info(r);
 		
 		ses.save(r); 
 		
@@ -66,10 +73,16 @@ public class ReimbursementDao implements ReimbursementDaoInterface{
 		}
 		
 		log.info(newStatus);
+		log.info(LocalDate.now());
+		
+		//get current date
+		LocalDate date = LocalDate.now();
+
+	    // Format the date to String
+//	    String date = Ddate.format(DateTimeFormatter.ofPattern("MM-DD-YY"));
 		
 		//Assign the Query syntax to a String
-		String HQL = "UPDATE Reimbursement r SET r.status.id = " + newStatus.getId() + " WHERE id = " + su.getReimbId();
-//		r.status.status = '" + su.getStatus() + "',
+		String HQL = "UPDATE Reimbursement r SET r.status.id = " + newStatus.getId() + ", r.resolved = '" + date + "' WHERE id = " + su.getReimbId();
 		
 		//Instantiate a Query object with createQuery()
 		Query q = ses.createQuery(HQL);
